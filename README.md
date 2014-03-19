@@ -14,3 +14,7 @@
 
 tp 的命令行发布工具。支持按照文件夹打包plist,发布格式可佩,可自动检测源文件夹的变化情况,做增量的发布.
 
+##revertXcodeCompressPng
+
+批量转换或你转换在png格式和CgBI png格式之间,支持递归
+
