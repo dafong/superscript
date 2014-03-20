@@ -14,7 +14,7 @@ __parser.add_option('-o','--output',dest ='output',action='store',default='outpu
 __parser.add_option('-r','--revert',dest ='revert',action='store',default='true')
 
 
-def dealImgInDir(dir,outputdir):
+def dealImgInDir(dir,outputdir,isRevert):
 
     if not os.path.exists(outputdir):
         print("out is " + outputdir)
@@ -24,13 +24,14 @@ def dealImgInDir(dir,outputdir):
             childpath = os.path.join(dir,d)
             out = os.path.join(outputdir,d)
             if os.path.isdir(d):
-                dealImgInDir(childpath,out)
+                dealImgInDir(childpath,out,isRevert)
             else:
                 if os.path.splitext(childpath)[1]==".png":
-                    cmd = "xcrun -sdk iphoneos pngcrush -revert-iphone-optimizations -q "+childpath+" " +os.path.join(outputdir,d)
+                    revertopt = ' -revert-iphone-optimizations' if isRevert else ''
+                    cmd       = "xcrun -sdk iphoneos pngcrush"+revertopt+" -q "+childpath+" " +os.path.join(outputdir,d)
                     os.system(cmd)
             
 if __name__=='__main__':
     options,args = __parser.parse_args()
     basedir = os.path.split(os.path.realpath(__file__))[0]
-    dealImgInDir(os.path.join(basedir,options.input),os.path.join(basedir,options.output))
+    dealImgInDir(os.path.join(basedir,options.input),os.path.join(basedir,options.output),options.revert=="true")
