@@ -18,3 +18,7 @@ tp 的命令行发布工具。支持按照文件夹打包plist,发布格式可�
 
 批量转换或你转换在png格式和CgBI png格式之间,支持递归
 
+##gitdifftojson
+
+能把git diff 出来的文件列表输出成指定的格式
+
