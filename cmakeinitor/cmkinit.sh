@@ -15,7 +15,11 @@ if [[ "$REPLY" == "" ]]; then
 	echo "the project name can't be empty!"
 	exit 1
 fi
-
+echo "create source folder ............. src"
+echo "create build folder .............. build"
+echo "create README file ............... README.md"
+echo "create LICENSE file .............. LICENSE"
+echo "create CMakeLists file ........... CMakeLists.txt"
 mkdir src
 mkdir build
 touch README.md
@@ -53,7 +57,7 @@ IN THE SOFTWARE.
 
 ====
 _EOF_
-
+echo "Create main.c file ........... src/main.c"
 touch src/main.c
 
 cat > src/main.c << _EOF_
