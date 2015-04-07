@@ -26,3 +26,6 @@ tp 的命令行发布工具。支持按照文件夹打包plist,发布格式可�
 
 build and package ipa in command line
 
+##cmakeinitor
+
+Cmake 工程初始化shell
